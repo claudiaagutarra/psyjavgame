@@ -24,7 +24,7 @@ document.onkeyup = function (event) {
 
         if (userGuess === computerGuess) {
             wins++;
-            alert ("You guessed the right letter! :) The computer's choice was: " + computerGuess.toLowerCase() + " Press OK to play again")
+            alert ("You guessed the right letter! :) The computer's choice was: " + computerGuess.toLowerCase() + ". Press OK to play again")
             guessesLeft = 9;
             guessedLetters = [];
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
