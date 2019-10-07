@@ -1,4 +1,5 @@
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
@@ -27,6 +28,7 @@ document.onkeyup = function (event) {
             guessesLeft = 9;
             guessedLetters = [];
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        
         } else if (userGuess !== computerGuess) {
             guessesLeft--;
         }
@@ -38,11 +40,12 @@ document.onkeyup = function (event) {
         guessedLettersText.textContent = "Your guesses so far: " + guessedLetters;
     };
 
-    if (guessesLeft < 1) {
+    if (guessesLeft === 0) {
         losses++;
         alert ("The computer's choice was: " + computerGuess.toLowerCase());
-        var playAgain = confirm("You lost ): Press OK to play again")
+        var playAgain = confirm("You lost ): Press OK to play again.")
         if (playAgain === true) {
+            toBeginText.textContent = " ~ Press any letter to play again ~ ";
             guessesLeft = 9;
             guessedLetters = [];
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
