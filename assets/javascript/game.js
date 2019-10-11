@@ -15,21 +15,23 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 
 document.onkeyup = function (event) {
 
-    var userGuess = computerChoices;  
+    if (event.keyCode<65 || event.keyCode>90) return;
+
     var userGuess = event.key; 
+
     var userGuessLower = userGuess.toLowerCase();
-    guessedLetters.push(userGuess);
+    guessedLetters.push(userGuessLower);
 
-    if (computerChoices.indexOf(userGuess)) {
+    if (computerChoices.indexOf(userGuessLower) > -1) {
 
-        if (userGuess === computerGuess) {
+        if (userGuessLower === computerGuess) {
             wins++;
             alert ("You guessed the right letter! :) The computer's choice was: " + computerGuess.toLowerCase() + ". Press OK to play again")
             guessesLeft = 9;
             guessedLetters = [];
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         
-        } else if (userGuess !== computerGuess) {
+        } else if (userGuessLower !== computerGuess) {
             guessesLeft--;
         }
 
